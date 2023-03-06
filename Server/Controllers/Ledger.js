@@ -11,7 +11,7 @@ module.exports = {
       const { id } = req.params;
       console.log(id);
 
-      const Ledger = await new Ledger({
+      const ledger = await new Ledger({
         ledger_name: details.ledger_name,
         customer_name: details.customer_name,
         Customer_address: details.Customer_address,
@@ -19,7 +19,7 @@ module.exports = {
       }).save();
       console.log("hh");
       const addToledger = await Company.findByIdAndUpdate(id, {
-        $push: { ledger: Ledger._id },
+        $push: { ledger: ledger._id },
       });
 
       res.status(200).json({ message: "Ledger created successfully" });
