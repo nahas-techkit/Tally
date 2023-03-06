@@ -25,7 +25,7 @@ module.exports = {
   //get all companies
   getAllcompanies: async (req, res) => {
     try {
-      const comapnies = await Company.find();
+      const comapnies = await Company.find().sort({ createdAt: -1 });
       res.status(200).json(comapnies);
     } catch (error) {
       res.status(400).json({ message: error.message });

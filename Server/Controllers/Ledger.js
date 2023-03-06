@@ -41,7 +41,7 @@ module.exports = {
   getAllLedger: async (req, res) => {
     try {
       const { id } = req.params;
-      const ledgers = await Company.findById(id).populate("ledger");
+      const ledgers = await Company.findById(id).populate("ledger").sort({ createdAt: -1 });
       res.status(200).json(ledgers.ledger);
     } catch (error) {
       res.status(400).json({ message: error.message });
