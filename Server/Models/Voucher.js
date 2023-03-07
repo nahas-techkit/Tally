@@ -4,7 +4,7 @@ const { ObjectId } = mongoose.Schema;
 
 const voucherSchema = mongoose.Schema(
   {
-    ledger_name: {
+    voucher_name: {
       type: String,
       required: [true, "ledger name is required"],
       trim: true,
